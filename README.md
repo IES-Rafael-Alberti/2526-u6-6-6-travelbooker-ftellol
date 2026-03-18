@@ -8,7 +8,7 @@
 
 ### Descripción: **Ejercicio: Gestor de Reservas para una Agencia de Viajes**
 
-En este ejercicio, crearás una plicación en la que aplicarás los conceptos de Programación Orientada a Objetos (POO) en Kotlin, incluyendo herencia, interfaces, clases abstractas, principios SOLID y arquitectura en capas. La aplicación simula un gestor de reservas para una agencia de viajes, permitiendo la creación y consulta de reservas de vuelo y de hotel. 
+En este ejercicio, crearás una aplicación en la que aplicarás los conceptos de Programación Orientada a Objetos (POO) en Kotlin, incluyendo herencia, interfaces, clases abstractas, principios SOLID y arquitectura en capas. La aplicación simula un gestor de reservas para una agencia de viajes, permitiendo la creación y consulta de reservas de vuelo y de hotel. 
 
 #### **Contexto y Objetivo**
 
@@ -167,3 +167,40 @@ Este conjunto de preguntas está diseñado para ayudarte a reflexionar sobre có
 #### **Criterio global 10: Expresiones Regulares**
 - **(6.g)**: Muestra ejemplos de tu código donde hayas utilizado las expresiones regulares. ¿Qué beneficio has obtenido?
 
+## Entrega de la Práctica
+
+### Respuestas a las preguntas planteadas
+
+#### **Criterio global 1: Instancia objetos y hacer uso de ellos**: 
+- los objetos se crean mediante creaInstancia de las clases ReservaVuelo y ReservaHotel los cuales tienen sus constructores privados para controlar la creación de instancias
+- La instancia asigna automaticamente un id aleatorio y la fecha de creacion en ese momento.
+
+#### **Criterio global 2: Crear y llamar métodos estáticos**: 
+- Implemente metodos estaticos con companion object, un ejemplo es creaInstancia. Esto permite crear nuevas reservas sin necesidad de instaciar un objeto vacio.
+
+#### **Criterio global 3: Uso de entornos**:
+- El IDE que utilize es IntelliJ, el cual me permite trabajar con Kotlin.
+- Cree un archivo kotlin dentro de este, lo compile y ejecute usando "Run".
+- Para probarlo al ya estar ejecutado, fui probando cada parte del menu de reservas.
+
+#### **Criterio global 4: Definir clases y su contenido**:
+- Para las clases, cree Reserva que es la principal, la cual es una clase abstracta de la cual luego van a heredar otras dos clases. Esta tiene propiedades como id, descripcion y un getter detalle.
+- Las otras clases que heredan de Reserva, sobreescriben detalle y sobreescriben toString son:
+  - ReservaHotel agrega otros atributos como pueden ser numeroNoches y ubicacion
+  - ReservaVuelo agrega otros atributos como pueden ser origen y destino
+- También esta ReservaService el cual se encarga de gestionar la creacion y mostrar la lista de reservas. Este sobreescribe los metodos de la interfaz IReservaRepository
+- IReservaRepository: define los metodos agregar y obtenerTodas.
+
+#### **Criterio global 5: Herencia y uso de clases abstractas e interfaces**
+- Reserva es abstracta es la clase padre y es abstracta.
+- ReservaVuelo y ReservaHotel heredan de Reserva.
+- IReservaRepository aplica uno de los principios SOLID, el cual es inversión de dependencias: ReservaService depende de la interfaz, no de la implementación concreta.
+
+#### **Criterio global 6: Diseño de jerarquía de clases**
+- La jerarquia es clara Reserva es la clase abstracta y de ella heredaran ReservaVuelo y ReservaHotel.
+- La herencia utilizada es la especialización porque los dos son tipos especificos de Reserva.
+- la jerarquia la probe creando objetos.
+
+#### **Criterio global 7: Librerías de clases**
+- java.util.UUID → Genera un id único.
+- java.time.LocalDate → Asigna una fecha de creación automáticamente.
